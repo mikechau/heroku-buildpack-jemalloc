@@ -38,7 +38,7 @@ function vendor() {
 }
 
 echo "-----> Vendoring binaries"
-vendor "https://s3.amazonaws.com/mojodna-heroku/jemalloc-3.4.0-1.tar.gz" "$BUILD_DIR/vendor/jemalloc"
+vendor "https://s3.amazonaws.com/binz/jemalloc-3.6.0.tar.gz" "$BUILD_DIR/vendor/jemalloc"
 
 echo "-----> Configuring build environment"
 
@@ -61,7 +61,7 @@ export LIBRARY_PATH="\$LIBRARY_PATH:${LIBRARY_PATH//$BUILD_DIR//app}"
 export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:${PKG_CONFIG_PATH//$BUILD_DIR//app}"
 export CPPPATH="\$CPPPATH:${CPPPATH//$BUILD_DIR//app}"
 export CPATH="\$CPATH:${CPATH//$BUILD_DIR//app}"
-export LD_PRELOAD="/app/vendor/jemalloc/lib/libjemalloc.so.1"
+export LD_PRELOAD="/app/vendor/jemalloc/lib/libjemalloc.so"
 EOF
 
 echo "-----> Build Config Vars"
